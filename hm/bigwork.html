@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nike.com</title>
+    <link rel="stylesheet" href="css/bigwork.css" />
+</head>
+
+<body>
+    <div class="header">     
+        <div class="container header-bottom clear">
+            <img src="myimages/nike.jpg" alt="logo图" width="236px" height="70px" class="logo fl" />
+            <ul class="nav fl clear">
+                <li class="first"><a href="#">12.12</a></li>
+                <li><a href="#">女子专区</a></li>
+                <li><a href="#">男子专区</a></li>
+                <li><a href="#">儿童专区</a></li>
+                <li class="last"><a href="#">鞋类专区</a></li>
+            </ul>
+            <form class="form clear fr">
+                <input type="text" placeholder="输入关键字" class="search" />
+                <input type="button" class="submit" />
+            </form>
+        </div>
+    </div>
+    <div class="banner" id="banner">
+        <img src="myimages/do.png" alt="" width="980px" height="550px" id="one">
+        <!-- <img src="myimages/banner1.png" alt="" width="980px" height="550px" id="two">
+        <img src="myimages/banner2.png" alt="" width="980px" height="550px" id="three">
+        <img src="myimages/banner3.png" alt="" width="980px" height="550px" id="four"> -->
+    </div>
+    <!-- 缩略图 -->
+    <div id="main">
+        <div id="smallpic">
+            <img src="myimages/shoe1.jpg" alt="" width="230px" height="220px" class="img">
+            <img src="myimages/shoe2.jpg" alt="" width="230px" height="220px" class="img">
+            <img src="myimages/coat1.jpg" alt="" width="230px" height="220px" class="img">
+            <img src="myimages/coat2.jpg" alt="" width="230px" height="220px" class="img">
+            <div>
+                <img src="myimages/06.png" alt="" id="bigpic" class="img">
+            </div>
+        </div>
+    </div>
+    <!-- 加入购物车类商品 -->
+    <div id="pros">
+        <div class="pro">
+            <div class="pro-pic"><img src="myimages/01.png"></div>
+            <div class="pro-price">¥499.00</div>
+            <div class="pro-btn"><a href="javascript:;">加入购物车</a></div>
+        </div>
+        <div class="pro">
+            <div class="pro-pic"><img src="myimages/02.png"></div>
+            <div class="pro-price">¥599.00</div>
+            <div class="pro-btn"><a href="javascript:;">加入购物车</a></div>
+        </div>
+        <div class="pro">
+            <div class="pro-pic"><img src="myimages/03.png"></div>
+            <div class="pro-price">¥1389.00</div>
+            <div class="pro-btn"><a href="javascript:;">加入购物车</a></div>
+        </div>
+        <div class="pro">
+            <div class="pro-pic"><img src="myimages/04.png"></div>
+            <div class="pro-price">¥699.00</div>
+            <div class="pro-btn"><a href="javascript:;">加入购物车</a></div>
+        </div>
+        <div class="pro">
+            <div class="pro-pic"><img src="myimages/05.png"></div>
+            <div class="pro-price">¥799.00</div>
+            <div class="pro-btn"><a href="javascript:;">加入购物车</a></div>
+        </div>
+    </div>
+    <div id="car">
+        <div id="pro-num">0</div>
+    </div>
+    <!-- 评价框 -->
+    <div id="box">
+        <div id="box1">
+            <h1>请对我们的服务做出评价</h1>
+            <div id="pic">
+                <img src="myimages/star0.png" alt="" title="1" name="0">
+                <img src="myimages/star0.png" alt="" title="2" name="1">
+                <img src="myimages/star0.png" alt="" title="3" name="2">
+                <img src="myimages/star0.png" alt="" title="4" name="3">
+                <img src="myimages/star0.png" alt="" title="5" name="4">
+                <br>
+            </div>
+                <form action="">
+                    <textarea name="" id="txt" cols="40" rows="8"></textarea>
+                    <br>
+                </form>
+        </div>
+    </div>
+    <div class="footer">
+        <h4>获得帮助</h4>
+        <ul class="clear">
+            <li>订单状态</li>
+            <li>配送方式</li>
+            <li>退换货</li>
+            <li>付款选项</li>
+            <li>企业团购</li>
+            <li>联系我们</li>
+            <li class="last">订阅邮件</li>
+        </ul>
+        <h4>关于NIKE</h4>
+        <ul class="clear">
+            <li>新闻</li>
+            <li>投资者</li>
+            <li>注册会员</li>
+            <li>新品预览</li>
+            <li>附近商店</li>
+            <li class="last">私人定制</li>
+        </ul>
+        <p>© 2020 Nike，Inc保留所有权利。沪ICP备140093390号</p>
+    </div>
+</body>
+<script>
+    //图片轮播
+    var one = document.getElementById("one");
+    var arr = ["myimages/do.png","myimages/banner1.png","myimages/banner2.png","myimages/banner3.png"];
+    console.log(arr);
+    var num = 0;
+    var intervalPic = setInterval(function(){
+        num++;
+        if(num >= arr.length){
+            num = 0;
+        }
+        console.log(num);
+        one.src = arr[num];
+    },1000)
+    //缩略图
+    var smallpic = document.getElementById("smallpic");
+    var bigpic = document.getElementById("bigpic");
+    var imgList = document.getElementsByClassName("img");
+    for(var i = 0;i<imgList.length;i++){
+        imgList[i].onclick = function(){
+            for(var i = 0;i<imgList.length;i++){
+                if(imgList[i].hasAttribute("class")){
+                    imgList[i].removeAttribute("class");
+                }
+            }
+            this.setAttribute("class","picborder");
+            var imgSrc = this.getAttribute("src");
+            bigpic.setAttribute("src",imgSrc);
+        }
+    }
+    //评价
+    var pic = document.getElementById("pic");
+    var picList = pic.getElementsByTagName("img");
+    var txt = document.getElementById("txt");
+    var comments = ["差", "一般", "中等", "还行", "好"];
+    var flag = true;
+    for(var i = 0;i < picList.length;i++){
+        picList[i].onmouseover = function(){
+            if(!flag){
+                return;
+            }
+            var index = this.getAttribute("title");
+            var imgSrc = "";
+            if(index <= 2){
+                imgSrc = "./myimages/star1.png";
+            }else{
+                imgSrc = "./myimages/star2.png";
+            }
+            for(var j = 0;j < index;j++){
+                picList[j].src = imgSrc;
+            }
+            txt.innerHTML = comments[index - 1];
+        }
+        picList[i].onmouseout = function(){
+            if(!flag){
+                return;
+            }
+            for(var j = 0;j < picList.length;j++){
+                picList[j].src = "./myimages/star0.png";
+            }
+            txt.innerHTML = "";
+        }
+        picList[i] = function(){
+            flag = !flag;
+        }
+    }
+//加入购物车
+    var btns = document.getElementsByClassName("pro-btn");
+        var car = document.getElementById("car");
+        for(var i = 0; i < btns.length; i++) {
+            btns[i].onclick = function() {
+                var oldImg = this.parentNode.firstElementChild.firstElementChild;
+                var imgNode = document.createElement("img");
+                imgNode.src = oldImg.src;
+                imgNode.style.position = "absolute";
+                imgNode.style.left =  oldImg.offsetLeft + "px";
+                imgNode.style.top = oldImg.offsetTop  + "px";
+                imgNode.style.width = oldImg.offsetWidth  + "px";
+                imgNode.style.height = oldImg.offsetHeight  + "px";
+                document.body.appendChild(imgNode);
+                animate(imgNode, {
+                    left: car.offsetLeft,
+                    top: car.offsetTop + document.documentElement.scrollTop,
+                    width: 20,
+                    height: 20,
+                    opacity: 10
+                }, function() {
+                    document.body.removeChild(imgNode);
+                    car.firstElementChild.innerHTML = parseInt(car.firstElementChild.innerHTML) + 1;
+                })
+            }
+        }
+
+    function getStyle(obj, attr){
+	    if(obj.currentStyle){
+		    return obj.currentStyle[attr];
+	    } else {
+		    return getComputedStyle(obj, null)[attr];
+	    }
+    }
+    function animate(obj,json,callback){
+	    var isStop = true;
+	    clearInterval(obj.timer);
+	    obj.timer = setInterval(function(){
+		    isStop = true;
+		    for(var attr in json){
+			    var now = 0;
+			    if(attr == 'opacity'){
+				    now = parseInt(getStyle(obj,attr)*100);
+			    }else{
+				    now = parseInt(getStyle(obj,attr));
+			    }
+			    var speed = (json[attr] - now) / 8;
+			    speed = speed>0?Math.ceil(speed):Math.floor(speed);
+			    var cur = now + speed;
+			    if(attr == 'opacity'){
+				    obj.style[attr] = cur / 100;
+				    obj.style['filter'] = "alpha(opacity=" + cur +")";
+			    }else{
+				    obj.style[attr] = cur + 'px';
+			    }
+			// if(json[attr] !== cur){
+			// 	isStop = false;
+			// }
+			    if(json[attr] == cur) {
+				    delete json[attr];
+			    }
+			    console.log(json);
+		    }
+		    if(JSON.stringify(json) == "{}"){
+			    clearInterval(obj.timer);
+			    callback&&callback();
+		    }
+	    }, 30)
+    }
+</script>
+</html>
